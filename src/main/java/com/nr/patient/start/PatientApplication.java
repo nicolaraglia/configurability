@@ -30,15 +30,19 @@ public class PatientApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(PatientApplication.class, args);
 		String profile = applicationContext.getEnvironment().getProperty("spring.profiles.active");
-		logger.info("-------");
-		logger.info("		-------");
-		logger.info("-------");
-		logger.info("the list of active bean");
+		logger.info("-------                                   --------------------");
+		logger.info("			------------------------------");
+		
+		logger.info("--------    THE LIST OF ACTIVE BEAN start	------------------");
+		logger.info("----------------------");
+		
 		printListOfBean(applicationContext);
-		logger.info("");
-		logger.info("-------");
-		logger.info("		-------");
-		logger.info("-------");
+		logger.info("-------                                   --------------------");
+		logger.info("			------------------------------");
+		
+		logger.info("--------    THE LIST OF ACTIVE BEAN end	------------------");
+		logger.info("----------------------");
+		
 		Patient patient = applicationContext.getBean(PatientServiceImpl.class);
 		PatientFilterTO patientFilter = new PatientFilterTO();
 		patientFilter.setCommand("Pin");

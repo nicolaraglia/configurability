@@ -2,6 +2,7 @@ package com.nr.patient.service.feature;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,13 @@ public class PatientSearchByFirstNameLastName implements PatientSearchFeature {
 
 	private String command = "FirstNameLastName";
 	
+	 @Value("${PatientSearchByFirstNameLastName.order}")
+	    private int myOrder;
+
+	    @Override
+	    public int getOrder() {
+	        return myOrder;
+	    }
 	
 	@Override
 	public PatientListTO patientSearch(PatientFilterTO patientFilter) {
